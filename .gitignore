@@ -1,0 +1,6 @@
+.idea
+Lib
+Scripts
+client_secrets.json
+credentials.json
+pyvenv.cfg
