@@ -1,7 +1,7 @@
 ﻿<br/>
 <p align="center">
   <a href="https://github.com/kaustubh135/PGDrive">
-    <img src="https://github.com/kaustubh135/PGDrive/blob/main/images/logo.png" alt="Logo" width="100" height="80">
+    <img src="https://github.com/kaustubh135/PGDrive/blob/main/images/logo.png" alt="Logo" width="135" height="80">
   </a>
 
   <h3 align="center">PGDrive</h3>
