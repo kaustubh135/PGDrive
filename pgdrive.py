@@ -12,36 +12,21 @@ from treelib import Tree
 
 def get_gauth():
     gauth = GoogleAuth()
-    if isfile("credentials.json"):
-        gauth.LoadCredentialsFile("credentials.json")
-        if gauth.credentials is None:
-            local_head = int(input("Enter '1' for Local Authenticating and '2' for Headless Authenticating: \n"))
-            if local_head == 1:
-                gauth.LocalWebserverAuth()
-                gauth.SaveCredentialsFile("credentials.json")
-                return gauth
-            else:
-                gauth.CommandLineAuth()
-                gauth.SaveCredentialsFile("credentials.json")
-                return gauth
-        elif gauth.access_token_expired:
-            gauth.Refresh()
-            gauth.SaveCredentialsFile("credentials.json")
-            return gauth
-        else:
-            gauth.Authorize()
-            gauth.SaveCredentialsFile("credentials.json")
-            return gauth
-    else:
+    gauth.LoadCredentialsFile("credentials.json")
+    if gauth.credentials is None:
         local_head = int(input("Enter '1' for Local Authenticating and '2' for Headless Authenticating: \n"))
         if local_head == 1:
             gauth.LocalWebserverAuth()
-            gauth.SaveCredentialsFile("credentials.json")
             return gauth
         else:
             gauth.CommandLineAuth()
-            gauth.SaveCredentialsFile("credentials.json")
             return gauth
+    elif gauth.access_token_expired:
+        gauth.Refresh()
+        return gauth
+    else:
+        gauth.Authorize()
+        return gauth
 
 
 def init_drive_object(gauth):
